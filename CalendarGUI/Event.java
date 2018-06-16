@@ -1,18 +1,18 @@
-import java.util.GregorianCalendar;
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
 
 public class Event {
-	GregorianCalendar date;
-	GregorianCalendar dateEnd;
+	String date;
 	String title;
-	public Event(String title, GregorianCalendar start, GregorianCalendar end) {
+	public Event(String title, String start) {
 		this.date = start;
-		this.dateEnd = end;
 		this.title = title;
 	}
 	
 	public String toString() {
-		return title+" "+date.get(GregorianCalendar.MONTH)+"/"+date.get(GregorianCalendar.DATE)
-			+"/"+date.get(GregorianCalendar.YEAR);
+		return title+" "+date;
 	}
 	
 }

@@ -14,7 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
 
 public class MonthView extends JPanel implements ChangeListener {
 	//GregorianCalendar cal = new GregorianCalendar();

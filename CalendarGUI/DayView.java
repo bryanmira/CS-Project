@@ -1,5 +1,7 @@
-
-
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,10 +17,8 @@ import javax.swing.event.ChangeListener;
 public class DayView extends JPanel implements ChangeListener{
 	String title;
 	GregorianCalendar start;
-	GregorianCalendar end;
 	CalendarModel model;
 	JTextField startField;
-	JTextField endField;
 	JTextArea eventsL;
 
 	public DayView(CalendarModel model, GregorianCalendar cal) {
@@ -31,12 +31,7 @@ public class DayView extends JPanel implements ChangeListener{
 		+"/" + start.get(GregorianCalendar.YEAR), 10);
 		startField.setEditable(false);
 		JLabel startLabel = new JLabel("Date:");
-		
-		JLabel endLabel = new JLabel("End Time");
-		endField = new JTextField((start.get(GregorianCalendar.MONTH)+1)+"/"+start.get(GregorianCalendar.DATE)
-		+"/" + start.get(GregorianCalendar.YEAR), 10);
-		
-		
+
 		eventsL = new JTextArea(model.toString(),20,20);
 		
 		this.setLayout(new FlowLayout());
@@ -46,16 +41,14 @@ public class DayView extends JPanel implements ChangeListener{
 		this.add(startLabel);
 		this.add(startField);
 		
-		this.add(endLabel);
-		this.add(endField);
-		
 		this.add(eventsL);
 
 		JButton submit = new JButton("Create");
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				title = textField.getText();
-				model.update(new Event(title, start, end));
+				String date = ""+(model.getCurr().get(GregorianCalendar.MONTH)+1)+"/"+model.getCurr().get(GregorianCalendar.DATE)+"/"+model.getCurr().get(GregorianCalendar.YEAR);
+				model.update(new Event(title, date));
 			}
 		});
 		this.add(submit);
@@ -66,9 +59,6 @@ public class DayView extends JPanel implements ChangeListener{
 	public void stateChanged(ChangeEvent e)
 	   {
 		startField.setText(""+(model.getCurr().get(GregorianCalendar.MONTH)+1)+"/"+model.getCurr().get(GregorianCalendar.DATE)+"/"+model.getCurr().get(GregorianCalendar.YEAR));
-		endField.setText(""+(model.getCurr().get(GregorianCalendar.MONTH)+1)+"/"+model.getCurr().get(GregorianCalendar.DATE)+"/"+model.getCurr().get(GregorianCalendar.YEAR));
-		
-		
 		eventsL.setText(model.toString());
 	   }
 }

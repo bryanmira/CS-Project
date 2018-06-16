@@ -1,3 +1,8 @@
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -6,7 +11,6 @@ import javax.swing.event.ChangeListener;
 
 public class CalendarModel {
 	private ArrayList<Event> eventList;
-	//listeners
 	private ArrayList<ChangeListener> listeners;
 	int day;
 	int month;
@@ -18,7 +22,6 @@ public class CalendarModel {
 	listeners = new ArrayList<>();
 	curr = new GregorianCalendar();
 	}
-	///day
 	
 	public void setDay(int t) {
 		this.day = t;
@@ -35,7 +38,7 @@ public class CalendarModel {
 	public String toString() {
 	    String results = "+";
 	    for(Event d : eventList) {
-	        results += d.toString()+"\n"; //if you implement toString() for Dog then it will be added here
+	        results += d.toString()+"\n"; 
 	    }
 	    return results;
 	  }
@@ -47,8 +50,6 @@ public class CalendarModel {
 	}
 	
 	public GregorianCalendar getCurr() {
-		//GregorianCalendar curr = new GregorianCalendar();
-		//curr.set(GregorianCalendar.DATE, day);
 		return curr;
 	}
 	

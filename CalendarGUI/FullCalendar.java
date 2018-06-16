@@ -1,3 +1,8 @@
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,9 +21,6 @@ public class FullCalendar extends JFrame{
 		DayView newDay = new DayView(model,cal);
 		model.attach(newDay);
 		model.attach(newMonth);
-		
-		
-		
 		
 		
 		JButton prevM = new JButton("Previous Month");

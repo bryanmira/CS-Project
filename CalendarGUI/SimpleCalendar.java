@@ -1,4 +1,7 @@
-
+/**
+ * @author Bryan Mira
+ * Simple Calendar.
+ */
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.GregorianCalendar;
